@@ -3,7 +3,7 @@
 <head>
   <%- partial('_partial/head') %>
 </head>
-<body class="<%= (theme.terminal || {}).show_grid === true ? 'with-grid' : '' %> <%= is_post() ? 'is-post' : '' %>">
+<body class="<%= (theme.terminal || {}).show_grid === true ? 'with-grid' : '' %> <%= (theme.terminal || {}).bloom !== false ? 'with-bloom' : '' %> <%= (theme.terminal || {}).pixels !== false ? 'with-pixels' : '' %> <%= is_post() ? 'is-post' : '' %>">
   <a class="skip-link" href="#main-content"><%= tr('skip') %></a>
   <div class="reading-progress" aria-hidden="true"></div>
   <div class="site-shell">

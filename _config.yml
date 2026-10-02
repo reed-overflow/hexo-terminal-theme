@@ -26,6 +26,8 @@ terminal:
   host: localhost
   title: terminal — blog
   show_grid: false # 默认纯色终端背景；可开启点阵背景
+  bloom: true # 标题、提示符与光标的荧光辉光，浅色模式自动减弱
+  pixels: true # 静态扫描线、像素网格与阶梯状终端标记
 
 hero:
   enabled: true
