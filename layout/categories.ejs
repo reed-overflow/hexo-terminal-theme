@@ -1,0 +1,5 @@
+<section>
+  <div class="page-heading"><p class="terminal-command"><span class="prompt-dollar">$</span> tree ./categories</p><h1><%= tr('categories') %><span class="heading-dot">.</span></h1><p><%= tr('categories_hint') %></p></div>
+  <% if (site.categories.length) { %><div class="category-tree"><%- list_categories({ show_count: true, class: 'category-tree', depth: 0 }) %></div><% } else { %><%- partial('_partial/empty') %><% } %>
+  <% if (page.content) { %><div class="prose"><%- page.content %></div><% } %>
+</section>

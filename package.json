@@ -1,0 +1,12 @@
+{
+  "name": "hexo-theme-terminal",
+  "version": "1.0.0",
+  "description": "A responsive, accessible terminal-inspired Hexo theme.",
+  "license": "MIT",
+  "keywords": ["hexo", "hexo-theme", "terminal", "responsive"],
+  "engines": { "node": ">=18" },
+  "peerDependencies": {
+    "hexo": ">=7.0.0",
+    "hexo-renderer-ejs": ">=2.0.0"
+  }
+}

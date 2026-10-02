@@ -1,0 +1,20 @@
+<% const terminal = theme.terminal || {}; %>
+<header class="site-header">
+  <div class="session-bar">
+    <span class="session-name"><span aria-hidden="true">[</span> <%= terminal.title || 'terminal — blog' %> <span aria-hidden="true">]</span></span>
+    <span class="session-path"><%= terminal.user || 'guest' %>@<%= terminal.host || 'localhost' %>:~</span>
+  </div>
+  <div class="navigation">
+    <a class="brand" href="<%- url_for('/') %>" aria-label="<%= config.title || 'Terminal' %>"><span class="brand-symbol" aria-hidden="true">&gt;_</span><span><%= config.title || 'terminal' %><span class="brand-dot">.</span></span></a>
+    <nav class="main-nav" id="main-nav" aria-label="<%= tr('site_nav') %>">
+      <% (theme.menu || []).forEach(function(item) { const href = terminal_url(item.path); if (!href) return; const current = url_for(page.path || ''); const active = href === url_for('/') ? is_home() : current === href || current.startsWith(href.endsWith('/') ? href : href + '/'); %>
+        <a href="<%= href %>" class="nav-link <%= active ? 'active' : '' %>" <%- active ? 'aria-current="page"' : '' %>><span aria-hidden="true"><%= item.command || './' + item.name %></span><span class="sr-only"><%= tr(item.name) %></span></a>
+      <% }); %>
+    </nav>
+    <div class="nav-actions">
+      <% if ((theme.search || {}).enabled !== false) { %><button type="button" class="search-trigger" data-search-open aria-label="<%= tr('search') %>"><span aria-hidden="true">/</span><span><%= tr('search') %></span></button><% } %>
+      <button type="button" class="icon-button theme-toggle" aria-label="<%= tr('theme') %>" title="<%= tr('theme') %>"><span aria-hidden="true">[theme]</span></button>
+      <button type="button" class="icon-button menu-toggle" aria-label="<%= tr('menu') %>" aria-controls="main-nav" aria-expanded="false"><span aria-hidden="true">[menu]</span></button>
+    </div>
+  </div>
+</header>

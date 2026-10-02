@@ -1,0 +1,8 @@
+<% if (page.posts && page.posts.length) { let lastYear = ''; %>
+<div class="archive-list">
+  <% page.posts.each(function(post) { const year = date(post.date, 'YYYY'); if (year !== lastYear) { lastYear = year; %><h2 class="archive-year"><span aria-hidden="true">#</span> <%= year %></h2><% } %>
+  <article class="archive-row"><time datetime="<%= date_xml(post.date) %>"><%= date(post.date, 'MM-DD') %></time><h3><a href="<%- url_for(post.path) %>"><%= post.title || tr('untitled') %></a></h3><span class="archive-row-arrow" aria-hidden="true">↗</span></article>
+  <% }); %>
+</div>
+<%- partial('_partial/pagination') %>
+<% } else { %><%- partial('_partial/empty') %><% } %>

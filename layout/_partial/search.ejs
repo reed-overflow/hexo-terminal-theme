@@ -1,0 +1,6 @@
+<dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title" data-index="<%- url_for('/' + String((theme.search || {}).path || 'terminal-search.json').replace(/^\/+/, '')) %>" data-limit="<%= Math.max(1, Number((theme.search || {}).limit) || 30) %>" data-idle="<%= tr('search_idle') %>" data-empty="<%= tr('search_empty') %>" data-loading="<%= tr('search_loading') %>" data-error="<%= tr('search_error') %>" data-results="<%= tr('results') %>">
+  <div class="search-dialog-header"><label id="search-title" for="search-input"><span class="prompt-dollar">$</span> <%= tr('search') %></label><button class="icon-button" type="button" data-search-close aria-label="<%= tr('close') %>">×</button></div>
+  <div class="search-input-wrap"><span aria-hidden="true">❯</span><input id="search-input" type="search" placeholder="<%= tr('search_hint') %>" autocomplete="off" spellcheck="false" aria-describedby="search-status"></div>
+  <p class="search-status" id="search-status" role="status" aria-live="polite"><%= tr('search_idle') %></p><ul class="search-results" id="search-results"></ul>
+  <div class="search-dialog-footer"><span><kbd>↑</kbd> <kbd>↓</kbd> <kbd>Enter</kbd></span><span><kbd>Esc</kbd> <%= tr('close') %></span></div>
+</dialog>

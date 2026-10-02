@@ -1,0 +1,4 @@
+<section class="archive-page">
+  <div class="page-heading"><p class="terminal-command"><span class="prompt-dollar">$</span> grep -r "<%= page.tag %>" ./posts</p><h1><span class="heading-dot">#</span><%= page.tag %></h1><a class="text-link" href="<%- url_for('/tags/') %>">← <%= tr('tags') %></a></div>
+  <%- partial('_partial/archive-list') %>
+</section>

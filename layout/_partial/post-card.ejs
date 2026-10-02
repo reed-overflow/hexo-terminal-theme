@@ -1,0 +1,6 @@
+<article class="post-card">
+  <div class="post-card-meta"><time datetime="<%= date_xml(post.date) %>"><%= date(post.date, 'YYYY-MM-DD') %></time><span class="meta-separator">/</span><span><%= reading_time(post.content) %> <%= tr('minutes') %></span><% if (post.categories && post.categories.length) { const category = post.categories.first(); %><a class="category-label" href="<%- url_for(category.path) %>"><%= category.name %></a><% } %></div>
+  <h3><a href="<%- url_for(post.path) %>"><%= post.title || tr('untitled') %><span class="post-arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="post-excerpt"><%= terminal_text(post.description || post.excerpt || post.content, 170) %></p>
+  <div class="post-card-bottom"><div class="tag-list"><% if (post.tags) { post.tags.limit(4).each(function(tag) { %><a href="<%- url_for(tag.path) %>">#<%= tag.name %></a><% }); } %></div><a class="read-link" href="<%- url_for(post.path) %>" aria-label="<%= tr('read') + ': ' + (post.title || tr('untitled')) %>"><%= tr('read') %> <span aria-hidden="true">→</span></a></div>
+</article>

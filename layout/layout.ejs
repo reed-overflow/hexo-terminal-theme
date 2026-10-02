@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="<%= String(page.lang || page.language || config.language || 'en').split(',')[0] %>" data-theme="<%= ['dark', 'light'].includes((theme.appearance || {}).mode) ? theme.appearance.mode : 'auto' %>" data-accent="<%= (theme.appearance || {}).accent || 'green' %>">
+<head>
+  <%- partial('_partial/head') %>
+</head>
+<body class="<%= (theme.terminal || {}).show_grid === true ? 'with-grid' : '' %> <%= is_post() ? 'is-post' : '' %>">
+  <a class="skip-link" href="#main-content"><%= tr('skip') %></a>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <div class="site-shell">
+    <%- partial('_partial/header') %>
+    <div class="workspace <%= (theme.sidebar || {}).enabled === false ? 'workspace-wide' : '' %>">
+      <main id="main-content" tabindex="-1"><%- body %></main>
+      <% if ((theme.sidebar || {}).enabled !== false) { %><%- partial('_partial/sidebar') %><% } %>
+    </div>
+    <%- partial('_partial/footer') %>
+  </div>
+  <% if ((theme.search || {}).enabled !== false) { %><%- partial('_partial/search') %><% } %>
+  <button class="back-top icon-button" type="button" aria-label="<%= tr('back_top') %>" title="<%= tr('back_top') %>" hidden>↑</button>
+  <script src="<%- url_for('/js/terminal.js') %>" defer></script>
+</body>
+</html>

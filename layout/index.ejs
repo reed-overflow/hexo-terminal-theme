@@ -1,0 +1,17 @@
+<% const hero = theme.hero || {}; const terminal = theme.terminal || {}; %>
+<% if (hero.enabled !== false && (!page.current || page.current === 1)) { %>
+<section class="hero">
+  <div class="hero-topline"><span class="eyebrow"><span aria-hidden="true"># </span><%= hero.eyebrow || 'A PERSONAL SPACE ON THE INTERNET' %></span></div>
+  <p class="terminal-command"><span class="prompt-user"><%= terminal.user || 'guest' %>@<%= terminal.host || 'localhost' %></span><span class="prompt-path">:~</span><span class="prompt-dollar">$</span> <%= hero.command || 'cat thoughts.md' %></p>
+  <h1><%= hero.title || 'Hello, world_' %><span class="cursor" aria-hidden="true"></span></h1>
+  <p class="hero-description"><%= hero.description || config.description || '' %></p>
+  <div class="hero-bottom"><span><span class="prompt-dollar" aria-hidden="true">//</span> <%= (theme.author || {}).status || 'Always learning. Always building.' %></span></div>
+</section>
+<% } %>
+<section class="post-list" aria-labelledby="entries-title">
+  <div class="section-heading"><h2 id="entries-title"><span class="prompt-dollar" aria-hidden="true">./</span><%= tr('articles') %></h2><span class="section-count">[<%= site.posts.length %> <%= tr('entries') %>]</span></div>
+  <% if (page.posts && page.posts.length) { %>
+    <% page.posts.each(function(post) { %><%- partial('_partial/post-card', { post: post }) %><% }); %>
+  <% } else { %><%- partial('_partial/empty') %><% } %>
+  <%- partial('_partial/pagination') %>
+</section>

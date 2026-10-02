@@ -1,0 +1,110 @@
+# Terminal · Hexo theme
+# 推荐在 Hexo 根目录的 _config.terminal.yml 中覆盖这些设置。
+menu:
+  - name: home
+    path: /
+    command: ~/home
+  - name: archives
+    path: /archives/
+    command: ./archives
+  - name: categories
+    path: /categories/
+    command: ./categories
+  - name: tags
+    path: /tags/
+    command: ./tags
+  # - name: About
+  #   path: /about/
+  #   command: whoami
+
+appearance:
+  mode: dark # auto | dark | light，访客可以切换，选择会保存在本地
+  accent: cyan # green | amber | cyan
+
+terminal:
+  user: guest
+  host: localhost
+  title: terminal — blog
+  show_grid: false # 默认纯色终端背景；可开启点阵背景
+
+hero:
+  enabled: true
+  eyebrow: A PERSONAL SPACE ON THE INTERNET
+  title: Hello, world_
+  description: 在这里记录、构建、分享。关于代码、生活，以及一切值得好奇的事。
+  command: cat thoughts.md
+
+author:
+  name: '' # 留空使用站点 author
+  bio: 保持好奇，持续构建。
+  avatar: '' # 本地路径或 HTTPS 图片地址
+  location: Earth
+  status: Available for interesting ideas
+
+# 支持任意平台；label 为显示名，icon 为简短字符标记。
+social:
+  - name: GitHub
+    url: https://github.com/
+    icon: GH
+  # - name: Mastodon
+  #   url: https://mastodon.social/@username
+  #   icon: M
+  # - name: X / Twitter
+  #   url: https://x.com/username
+  #   icon: X
+  # - name: Email
+  #   url: mailto:hello@example.com
+  #   icon: '@'
+  # - name: Bilibili
+  #   url: https://space.bilibili.com/12345
+  #   icon: B
+
+sidebar:
+  enabled: true
+  recent_posts: 4
+  tags: 12
+
+post:
+  toc: true
+  show_updated: true
+  reading_speed: 250
+  copyright: true
+  license: CC BY-NC-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+search:
+  enabled: true
+  path: terminal-search.json
+  content_length: 20000 # 每篇文章索引的最大纯文本字符数
+  limit: 30 # 最多显示的结果数
+
+# 仅在安装 hexo-generator-feed 并配置 feed 后填写，如 /atom.xml。
+rss: ''
+favicon: /images/favicon.svg
+
+# 访客计数器，例如 https://count.getloli.com/@your-unique-blog-name?theme=original
+# 也支持其他提供 HTTPS 图片或 iframe 地址的服务。默认关闭。
+counter:
+  enabled: false
+  type: image # image | iframe
+  url: ''
+  link: '' # 可选：点击图片后访问的 HTTPS 地址
+  title: Visitors
+  width: 300
+  height: 100
+
+# 可选 Giscus 评论，参数从 https://giscus.app/zh-CN 获取。
+comments:
+  enabled: false
+  repo: ''
+  repo_id: ''
+  category: ''
+  category_id: ''
+  mapping: pathname
+  lang: zh-CN
+
+footer:
+  since: 2026
+  text: Words here.
+  icp: ''
+  icp_url: https://beian.miit.gov.cn/

@@ -1,0 +1,5 @@
+<section>
+  <div class="page-heading"><p class="terminal-command"><span class="prompt-dollar">$</span> cat ./tags.json</p><h1><%= tr('tags') %><span class="heading-dot">.</span></h1><p><%= tr('tags_hint') %></p></div>
+  <% if (site.tags.length) { %><div class="tag-cloud"><% site.tags.sort('name', 1).each(function(tag) { %><a href="<%- url_for(tag.path) %>"><span>#<%= tag.name %></span><span class="tag-count"><%= tag.posts.length %></span></a><% }); %></div><% } else { %><%- partial('_partial/empty') %><% } %>
+  <% if (page.content) { %><div class="prose"><%- page.content %></div><% } %>
+</section>

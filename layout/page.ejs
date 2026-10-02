@@ -1,0 +1,5 @@
+<article class="article" data-copy-label="<%= tr('copy') %>" data-copied-label="<%= tr('copied') %>" data-copy-error="<%= tr('copy_error') %>">
+  <header class="page-heading"><p class="terminal-command"><span class="prompt-dollar">$</span> cat <%= page.slug || 'page' %>.md</p><h1><%= page.title || tr('untitled') %><span class="heading-dot">.</span></h1></header>
+  <div class="prose" id="article-content"><%- page.content %></div>
+  <%- partial('_partial/comments') %>
+</article>

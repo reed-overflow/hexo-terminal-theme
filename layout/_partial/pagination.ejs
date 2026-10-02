@@ -1,0 +1,8 @@
+<% if (page.total > 1) { %>
+<nav class="pagination" aria-label="<%= tr('pagination') %>">
+  <% if (page.prev) { %><a class="pagination-direction" rel="prev" href="<%- url_for(page.prev_link) %>">← <%= tr('newer') %></a><% } else { %><span></span><% } %>
+  <div class="page-numbers"><%- paginator({ prev_next: false, mid_size: 1, end_size: 1, space: '…' }) %></div>
+  <span class="page-mobile"><%= page.current %> / <%= page.total %></span>
+  <% if (page.next) { %><a class="pagination-direction" rel="next" href="<%- url_for(page.next_link) %>"><%= tr('older') %> →</a><% } else { %><span></span><% } %>
+</nav>
+<% } %>

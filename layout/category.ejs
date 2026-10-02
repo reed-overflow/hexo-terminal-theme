@@ -1,0 +1,4 @@
+<section class="archive-page">
+  <div class="page-heading"><p class="terminal-command"><span class="prompt-dollar">$</span> cd ./categories/<%= page.category %></p><h1><%= page.category %><span class="heading-dot">.</span></h1><a class="text-link" href="<%- url_for('/categories/') %>">← <%= tr('categories') %></a></div>
+  <%- partial('_partial/archive-list') %>
+</section>
