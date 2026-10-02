@@ -64,7 +64,7 @@
      enable: false
    ```
 
-4. 将主题的 `_config.yml` 复制为 **站点根目录**的 `_config.terminal.yml`，并修改作者、导航、外链等设置。这样升级主题不会覆盖个人配置。
+4. 将主题的 `_config.yml` 复制为 **站点根目录**的 `_config.hexo-terminal-theme.yml`，并修改作者、导航、外链等设置。覆盖文件名必须与站点 `theme` 值一致：`theme: terminal` 对应 `_config.terminal.yml`，`theme: hexo-terminal-theme` 对应 `_config.hexo-terminal-theme.yml`。这样升级主题不会覆盖个人配置。
 5. 正常使用 Hexo 发布站点：
 
    ```sh
@@ -79,7 +79,11 @@
 
 ## 主题配置
 
-完整选项及注释见 [`_config.yml`](./_config.yml)。以下均填写在站点根目录的 `_config.terminal.yml` 中。
+完整选项及注释见 [`_config.yml`](./_config.yml)。以下均填写在站点根目录的 `_config.hexo-terminal-theme.yml` 中（对应 `theme: hexo-terminal-theme`）。
+
+旧版说明使用的 `_config.terminal.yml` 也兼容读取。配置优先级从低到高为：主题目录 `_config.yml` → 站点根目录 `_config.terminal.yml` → 站点根目录 `_config.<theme>.yml` → 站点配置中的 `theme_config`。嵌套配置逐项合并，列表整体替换，`false` 和空字符串会保留。建议只维护一个主题覆盖文件，避免高优先级配置覆盖修改。
+
+修改配置后重启 Hexo 并重新生成站点。仅修改 `appearance.mode` 时，浏览器保存的访客配色偏好仍然优先；这不影响其他配置项的覆盖。
 
 ### 辉光与像素效果
 
@@ -315,7 +319,7 @@ feed:
   content: true
 ```
 
-在 **主题 `_config.terminal.yml`** 中配置：
+在 **站点根目录的主题覆盖文件 `_config.hexo-terminal-theme.yml`** 中配置：
 
 ```yaml
 rss: /atom.xml
@@ -358,6 +362,7 @@ terminal/
 ├── layout/                 # EJS 布局、文章、归档、分类、标签等
 │   └── _partial/           # 导航、侧栏、搜索、评论和页脚
 ├── scripts/
+│   ├── config.js           # 兼容旧配置文件名，合并主题设置
 │   ├── helpers.js          # 翻译、URL、阅读时长、摘要等
 │   └── generators.js       # 分类/标签索引、404、搜索 JSON
 ├── source/

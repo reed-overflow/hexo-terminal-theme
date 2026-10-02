@@ -1,5 +1,7 @@
 # Terminal · Hexo theme
-# 推荐在 Hexo 根目录的 _config.terminal.yml 中覆盖这些设置。
+# 推荐在 Hexo 根目录的 _config.<theme>.yml 中覆盖，文件名与站点 theme 值一致。
+# 例如 theme: hexo-terminal-theme → _config.hexo-terminal-theme.yml。
+# 兼容旧名称 _config.terminal.yml；同名主题覆盖文件和 theme_config 优先级更高。
 menu:
   - name: home
     path: /
